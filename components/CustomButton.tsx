@@ -13,7 +13,7 @@ const CustomButton = ({ title, containerStyles, handleClick ,btnType }: CustomBu
     onClick={handleClick}
     >
    <span className={`flex-1`}>
-    title
+    sign in
    </span>
     </button>
   )
