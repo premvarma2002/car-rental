@@ -1,21 +1,23 @@
-'use client'
-import Image from "next/image"
-import { useState } from "react"
-import { CarProps } from "@/types"
-import { CustomButton } from "."
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import { CarProps } from "@/types";
+import { CustomButton } from ".";
 interface CarCardProps {
-  car:CarProps;
+  car: CarProps;
 }
 
-const CarCard = ({car}: CarCardProps) => {
-  const { city_mpg, year , make , model , transmission , drive} = car ;
+const CarCard = ({ car }: CarCardProps) => {
+  const { city_mpg, year, make, model, transmission, drive } = car;
   return (
     <div className="car-card group">
       <div className="car-card__content">
-         <h2 className="car-card__content-title">{make} {model}</h2>
+        <h2 className="car-card__content-title">
+          {make} {model}
+        </h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CarCard
+export default CarCard;
