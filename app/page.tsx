@@ -1,7 +1,6 @@
-import { CustomFilter, Hero, SearchBar } from "@/components";
+import { CustomFilter, Hero, SearchBar,CarCard} from "@/components";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
-
 export default async function Home() {
   const allCars = await fetchCars();
 
@@ -23,16 +22,24 @@ export default async function Home() {
   <div className="home__filters-conatiner">
     <CustomFilter  title="fuel" />
     <CustomFilter  title="year" />
-    
-
   </div>
 </div>
 
-    {!isDataEmpty? (
+    {!isDataEmpty ? (
       <section>
-         <
+         <div className="home__cars-wrapper">
+          {allCars?.map((car) => (
+            <CarCard car={car}/>
+          ))}
+         </div>
       </section>
-    ))}
+    ):(
+     <div className="home__error-container">
+      <h2 className="text-black text-xl font-bold">Oops , no results</h2>
+      <p>{allCars?.message}</p>
+     </div>
+    )
+}
 
   </div>      
     </main>
